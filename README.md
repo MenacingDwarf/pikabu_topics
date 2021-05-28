@@ -19,7 +19,7 @@ To reproduce data collection please perform the following steps:
 1. Run [crawler script](Part1/crawler.py).
 2. Run [script for dataframe creation](Part1/main_processing.py).
 3. Continue in [jupyter notebook](Part1/preprocessing.ipynb) for data preprocessing.
-4. If you don't want use jupyter notebooks you can just run [script for full processing](Part1/full_processing.py) insted of steps 2 and 3.
+4. If you don't want use jupyter notebooks you can just run [script for full processing](Part1/full_preprocessing.py) insted of steps 2 and 3.
 
 You can also download all required data without runnig scripts in [google drive](https://drive.google.com/drive/folders/1eiZEIFzuk1t4u8MPgD6eQXkTWzVrEwew?usp=sharing).
 
@@ -35,7 +35,7 @@ To reproduce data collection please perform the following steps:
 To begin with, additional work had to be done with the data prepared in the previous stages. The [fasttext algorithm](https://fasttext.cc/docs/en/crawl-vectors.html) was applied to the text of posts and headings to get the embedded text. Stop words were removed from all posts and lemmatization was applied. As a result, the features necessary for further training were selected.
 
 But the main purpose of this stage was the application of algorithms for classification, clustering, topic modeling. To reproduce the results perform the following steps:
-1. Run the [feature selection notebook](Part3/features_selection.ipynb) and follow the steps in it.
+1. Run the [feature selection notebook](Part3/features_selection.ipynb) and follow the steps in it. If you don't want use jupyter notebooks you can just run [script for feature selection](Part3/features_selection.py)
 2. Run the [topic modeling notebook](Part3/topic_modeling.ipynb) and follow the steps in it.
 
 The following results were obtained:
