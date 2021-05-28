@@ -19,6 +19,7 @@ To reproduce data collection please perform the following steps:
 1. Run [crawler script](Part1/crawler.py).
 2. Run [script for dataframe creation](Part1/main_processing.py).
 3. Continue in [jupyter notebook](Part1/preprocessing.ipynb) for data preprocessing.
+4. If you don't want use jupyter notebooks you can just run [script for full processing](Part1/full_processing.py) insted of steps 2 and 3.
 
 You can also download all required data without runnig scripts in [google drive](https://drive.google.com/drive/folders/1eiZEIFzuk1t4u8MPgD6eQXkTWzVrEwew?usp=sharing).
 
