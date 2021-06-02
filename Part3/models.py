@@ -46,7 +46,7 @@ class TopicsAnalyzer():
         self.run_model(StandardScaler(), SVC())
         
     def LogisticRegression(self):
-        self.run_model(StandardScaler(), LogisticRegression())
+        self.run_model(StandardScaler(), LogisticRegression(max_iter=500))
         
     def LDA(self):
         self.run_model(StandardScaler(), LDA())
@@ -85,6 +85,30 @@ class TopicsAnalyzer():
         kmeans = KMeans(n_clusters=10).fit(data)
         le = preprocessing.LabelEncoder().fit(target)
         self.clustering_score = metrics.adjusted_rand_score(kmeans.predict(data), le.transform(target))
+        
+    def LogisticRegressionGridSearch(self):
+        random_search = {'penalty': ['none', 'l2'],
+                         'C'      : [0.1, 0.5, 1.0]}
+        
+        df_results_data = {'score': [],
+                           'C': [],
+                           'penalty': []}
+
+        for i in range(len(random_search['C'])):
+            for j in range(len(random_search['penalty'])):
+                pipe = Pipeline(
+                    [
+                        ('scaler', StandardScaler()),
+                        ('svc', LogisticRegression(penalty=random_search['penalty'][j], C=random_search['C'][i]))
+                    ]
+                )
+                pipe.fit(self.X_train, м.y_train)
+                
+                df_results_data['score'].append(pipe.score(self.X_test, self.y_test))
+                df_results_data['C'].append(random_search['C'][i])
+                df_results_data['penalty'].append(random_search['penalty'][j])
+                
+        pd.DataFrame(df_results_data)
     
         
     
